@@ -1,7 +1,7 @@
 from sklearn.datasets import load_iris
 import numpy
 from sklearn import tree
-from sklearn.externals.six import StringIO
+from StringIO import StringIO
 from graphviz import Source
 
 IRIS = load_iris()
