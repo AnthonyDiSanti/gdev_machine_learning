@@ -4,6 +4,7 @@ from sklearn import tree
 from StringIO import StringIO
 from graphviz import Source
 
+# Load the training dataset
 IRIS = load_iris()
 
 # Print the structure of the data
@@ -18,6 +19,7 @@ IRIS = load_iris()
 # for i in range(len(IRIS.data)):
     # print "Example %d: label %s features %s" % (i, IRIS.target[i], IRIS.data[i])
 
+# Build the classifier
 test_cohort = [0, 50, 100]
 train_target = numpy.delete(IRIS.target, test_cohort)
 train_data = numpy.delete(IRIS.data, test_cohort, axis=0)
@@ -29,6 +31,7 @@ clf = tree.DecisionTreeClassifier().fit(train_data, train_target)
 print test_target
 print clf.predict(test_data)
 
+# Generate a dot file and PDF
 dot_data = StringIO()
 tree.export_graphviz(clf, out_file=dot_data,
                           feature_names=IRIS.feature_names,
@@ -38,3 +41,9 @@ tree.export_graphviz(clf, out_file=dot_data,
                           special_characters=True)
 src = Source(dot_data.getvalue())
 src.render(filename='2-tree_viz.gv')
+
+# Print a sample data point
+print test_data[0], test_target[0]
+
+# Print the structure of the data
+print IRIS.feature_names, IRIS.target_names
