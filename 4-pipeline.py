@@ -13,7 +13,7 @@ def measure(algo, outputLabel):
     classifier.fit(X_train, y_train)
 
     predictions = classifier.predict(X_test)
-    print outputLabel + " Accuracy: " + str(metrics.accuracy_score(y_test, predictions))
+    print(outputLabel + " Accuracy: " + str(metrics.accuracy_score(y_test, predictions)))
 
 from sklearn import metrics, tree, neighbors
 algos = { 'Tree': tree.DecisionTreeClassifier,

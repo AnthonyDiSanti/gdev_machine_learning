@@ -10,4 +10,4 @@ labels = [APPLE, APPLE, ORANGE, ORANGE]
 
 clf = tree.DecisionTreeClassifier().fit(features, labels)
 
-print clf.predict([[150, BUMPY]])
+print(clf.predict([[150, BUMPY]]))
